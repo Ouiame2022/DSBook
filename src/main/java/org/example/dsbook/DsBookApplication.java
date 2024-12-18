@@ -21,19 +21,15 @@ public class DsBookApplication {
     @Bean
     CommandLineRunner start(BookService bookService) {
         return args -> {
-            // Liste des livres à ajouter
             List<BookDto> books = List.of(
-                    BookDto.builder().titre("Model 1").publisher("Red").datePublication("2023-01-01").price(12345).resume("Résumé 1").build(),
-                    BookDto.builder().titre("Model 2").publisher("Blue").datePublication("2022-12-15").price(54321).resume("Résumé 2").build(),
-                    BookDto.builder().titre("Model 3").publisher("Green").datePublication("2023-05-20").price(98765).resume("Résumé 3").build(),
-                    BookDto.builder().titre("Model 4").publisher("Yellow").datePublication("2021-11-10").price(56789).resume("Résumé 4").build()
+                    BookDto.builder().titre("Titre 1").publisher("Editeur 1").datePublication("2018-05-01").price(500).resume("Résumé 1").build(),
+                    BookDto.builder().titre("Titre 2").publisher("Editeur 2").datePublication("2022-12-15").price(100).resume("Résumé 2").build(),
+                    BookDto.builder().titre("Titre 3").publisher("Editeur 3").datePublication("2023-05-20").price(150).resume("Résumé 3").build(),
+                    BookDto.builder().titre("Titre 4").publisher("Editeur 4").datePublication("2021-11-10").price(300).resume("Résumé 4").build()
             );
-
             for (BookDto bookDto : books) {
                 bookService.saveBook(bookDto);
             }
         };
     }
-
-
 }
